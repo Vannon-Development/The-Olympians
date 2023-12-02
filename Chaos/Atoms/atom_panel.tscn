@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx1sc4t5mtm1l"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xpn6a"]
+a = Vector2(3840, 0)
+b = Vector2(3840, 2160)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hhn8e"]
+b = Vector2(0, 2160)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u17pt"]
+b = Vector2(3840, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ton0a"]
+a = Vector2(0, 2160)
+b = Vector2(3840, 2160)
+
+[node name="Atom Panel" type="Node2D"]
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+shape = SubResource("SegmentShape2D_xpn6a")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+shape = SubResource("SegmentShape2D_hhn8e")
+
+[node name="Top" type="CollisionShape2D" parent="Bounds"]
+shape = SubResource("SegmentShape2D_u17pt")
+
+[node name="Bottom" type="CollisionShape2D" parent="Bounds"]
+shape = SubResource("SegmentShape2D_ton0a")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvsnowfvjsgl2"]
+
+[ext_resource type="Script" path="res://Chaos/control_scene.gd" id="1_k04ms"]
+[ext_resource type="PackedScene" uid="uid://bx1sc4t5mtm1l" path="res://Chaos/Atoms/atom_panel.tscn" id="1_y3ogw"]
+[ext_resource type="PackedScene" uid="uid://dvd3d0dnqcqww" path="res://Chaos/Background/cloud.tscn" id="3_j7c3e"]
+
+[node name="Control Scene" type="Node2D"]
+script = ExtResource("1_k04ms")
+
+[node name="Atom Panel" parent="." instance=ExtResource("1_y3ogw")]
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Cloud" parent="." instance=ExtResource("3_j7c3e")]
+position = Vector2(-299, 1222)

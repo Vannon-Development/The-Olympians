@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2y5vncem1fxu"]
+
+[ext_resource type="Texture2D" uid="uid://i4tddtcby6bl" path="res://Chaos/Atoms/Art/Link Cone.png" id="1_7sd4p"]
+[ext_resource type="Script" path="res://Chaos/Atoms/link_cone.gd" id="1_f4sfi"]
+[ext_resource type="Texture2D" uid="uid://cwvjh003cudwf" path="res://Chaos/Atoms/Art/Particle.png" id="3_gd4of"]
+
+[sub_resource type="Curve" id="Curve_rojmv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pomc2"]
+curve = SubResource("Curve_rojmv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n38ut"]
+particle_flag_disable_z = true
+flatness = 0.6
+initial_velocity_min = 64.0
+initial_velocity_max = 64.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -20.59
+linear_accel_max = 35.24
+alpha_curve = SubResource("CurveTexture_pomc2")
+
+[node name="link_cone" type="Node2D"]
+z_index = -1
+script = ExtResource("1_f4sfi")
+
+[node name="visual" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(32, 0)
+texture = ExtResource("1_7sd4p")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_n38ut")
+texture = ExtResource("3_gd4of")

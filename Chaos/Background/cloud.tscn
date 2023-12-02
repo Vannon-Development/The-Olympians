@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvd3d0dnqcqww"]
+
+[ext_resource type="Script" path="res://Chaos/Background/cloud.gd" id="1_axi78"]
+[ext_resource type="Texture2D" uid="uid://ddf6ky6pua8di" path="res://Chaos/Background/Art/Cloud.png" id="2_xpcem"]
+
+[node name="Cloud" type="Node2D"]
+script = ExtResource("1_axi78")
+
+[node name="Visual" type="Sprite2D" parent="."]
+texture = ExtResource("2_xpcem")
+hframes = 4
+vframes = 4
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-32, -32, 64, 64)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_frame_exit"]
